@@ -1,8 +1,9 @@
-name: Build
+name: Build Angular
 on:
   push:
     branches:
-      - master
+      - develop
+      - main
 
 jobs:
   build:
@@ -28,4 +29,4 @@ jobs:
       - name: npm ci and npm run build
         run: |
           npm ci
-          npm run build:ci
+          npm run build
