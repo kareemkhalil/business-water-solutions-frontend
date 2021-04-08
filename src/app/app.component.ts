@@ -1,13 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { I18nService } from '@app/i18n';
+import { Logger, UntilDestroy, untilDestroyed } from '@core';
+import { environment } from '@env/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { merge } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
-
-import { environment } from '@env/environment';
-import { Logger, UntilDestroy, untilDestroyed } from '@core';
-import { I18nService } from '@app/i18n';
 
 const log = new Logger('App');
 
@@ -28,7 +27,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // Setup logger
-    if (environment.production) {
+    if (environment.production || 'test') {
       Logger.enableProductionMode();
     }
 
