@@ -1,3 +1,4 @@
+/* eslint-disable no-var */
 /*
  * Extra typings definitions
  */

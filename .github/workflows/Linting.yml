@@ -1,4 +1,4 @@
-name: Build Angular
+name: Lint
 on:
   push:
     branches:
@@ -29,4 +29,4 @@ jobs:
       - name: npm ci and npm run build
         run: |
           npm ci
-          npm run build
+          npm run eslint:check
